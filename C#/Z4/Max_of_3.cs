@@ -8,7 +8,7 @@ while (i < 4)
      {
      Max=A;
      }
-     Console.WriteLine(A);          // Вывод полученных чисел
+     Console.WriteLine(A);         
      ++i;
 }
      Console.WriteLine("И наибольшее из них - это число " + Max);
