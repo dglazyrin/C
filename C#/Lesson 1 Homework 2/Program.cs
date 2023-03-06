@@ -1,15 +1,12 @@
-﻿string D = Console.ReadLine();
-string E = Console.ReadLine();
-string F = Console.ReadLine();
-int A = int.Parse(D);
-int B = int.Parse(E);
-int C = int.Parse(F);
+﻿int A = int.Parse(Console.ReadLine());
+int B = int.Parse(Console.ReadLine());
+int C = int.Parse(Console.ReadLine());
 Console.Write(A+", "+B+", "+C+" -> max=");
-if ((A>B)&&(A>C))
+if (A>B&&A>C)
 {
    Console.WriteLine(A);
 }
-else if ((B>A)&&(B>C))
+else if (B>A&&B>C)
 {
    Console.WriteLine(B);
 }
