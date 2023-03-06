@@ -24,13 +24,12 @@ void DotDemo (int[] coords)                                 // Вывод коо
 void FillArray(int[] coords)                                // Точка - это массив с её координатами
 {
      int index = 0;                               
-     while (index < coords.Length)                          // Создаём массив с координатами
+     while (index < 3)                                      // Создаём массив с координатами
      {                                                      // в диапазоне (-1000, 1000)
           coords[index] = new Random().Next(-1000,1000);    // и заполняем его.
           index++;
      }
 }
-
 int[] coordA = new int[3];
 int[] coordB = new int[3];
 FillArray (coordA);
