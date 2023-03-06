@@ -9,11 +9,11 @@
                return true;
           }
      }
-bool Log(bool arg1,bool arg2) // Метод проверки условия
+bool Log(bool arg1,bool arg2)           // Метод проверки условия
      {
      return (!(arg1|arg2)==(!arg1&!arg2));
      }
-void Out(bool arg3,bool arg4)  // Метод вывода
+void Out(bool arg3,bool arg4)           // Метод вывода
      {
      if (Log(arg3,arg4))
      {
