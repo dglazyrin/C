@@ -1,18 +1,20 @@
-﻿int[]FillMass(int[] X)        //Метод заполнения массива
+﻿// Понял так, что нужно найти в массиве количество значений больше 10 и меньше 99
+
+int[]FillMass(int[] X)        //Метод заполнения массива
 {
-     for (int i = 0; i < 20; i++)
+     for (int i = 0; i < 123; i++)
      {
-          X[i]=new Random().Next(100,1000);
+          X[i]=new Random().Next(0,120);  // Заполняем значениями от 0 до 119
      }
      return X;
 }
 
-int Divide2(int[] X)  //Метод поиска чётных значений в списке
+int Summ1099(int[] X)  //Метод поиска чётных значений в списке
 {
      int res = 0;
-     for (int i = 0; i < 20; i++)
+     for (int i = 0; i < 123; i++)
      {
-          if (X[i]%2==0)
+          if ((X[i]>10)&(X[i]<99))
           {
                res++;
           }
@@ -23,16 +25,15 @@ int Divide2(int[] X)  //Метод поиска чётных значений в
 void ShowMass(int[] Y)         //Метод вывода массива
 {
      Console.WriteLine("Массив у нас такой - ");
-     for (int i = 0; i < 20; i++)
+     for (int i = 0; i < 123; i++)
      {
           Console.Write(Y[i] + " ");
      }
      Console.WriteLine("");
 }
-
-
-int []MyMass = new int[20];
+////////////////////////////////////////////////////////////////////////////////
+int []MyMass = new int[123];
 FillMass (MyMass);
 ShowMass (MyMass);
-int A = Divide2(MyMass);
-Console.WriteLine("В нём " + A + " чётных и " + (20-A) + " нечётных чисел");
+int A = Summ1099(MyMass);
+Console.WriteLine("В нём " + A + " чисел от 10 до 99");
