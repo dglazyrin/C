@@ -2,9 +2,21 @@
 {
      for (int i = 0; i < 12; i++)
      {
-          X[i]=new Random().Next(0,10);
+          X[i]=new Random().Next(-9,10);
      }
      return X;
+}
+int CountPlus(int[] X)        //Метод подсчёта положительных чмсел в массиве
+{
+     int count = 0;
+     for (int i = 0; i < 12; i++)
+     {
+          if (X[i]>=0)
+          {
+               count++;
+          }
+     }
+     return count;
 }
 void ShowMass(int[] Y)         //Метод вывода массива
 {
@@ -14,10 +26,9 @@ void ShowMass(int[] Y)         //Метод вывода массива
           Console.Write(Y[i] + " ");
      }
 }
-///////////////
-// Каких положительных/отрицательных, если диапазон 0-9?
-///////////////
-
 int []MyMass = new int[12];
 FillMass (MyMass);
 ShowMass (MyMass);
+int Plus = CountPlus(MyMass);
+Console.WriteLine();
+Console.Write("Положительных значений в нём " + Plus + ", а отрицательных - " + (12-Plus) + ".");
