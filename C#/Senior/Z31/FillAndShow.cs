@@ -8,10 +8,10 @@
 }
 void ShowMass(int[] Y)  //Метод вывода массива
 {
-     Console.WriteLine("А массив у нас такой - ");
+     Console.Write("А массив у нас такой - ");
      for (int i = 0; i < 8; i++)
      {
-          Console.WriteLine(Y[i]);
+          Console.Write(Y[i] + "  ");
      }
 }
 
