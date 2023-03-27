@@ -6,7 +6,7 @@
      }
      return X;
 }
-int CountPlus(int[] X)        //Метод подсчёта положительных чмсел в массиве
+int CountPlus(int[] X)        //Метод подсчёта положительных чисел в массиве
 {
      int count = 0;
      for (int i = 0; i < 12; i++)
