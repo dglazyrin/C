@@ -7,7 +7,7 @@ int[,]FillMass(int[,] X)  //Метод заполнения массива
      {
           for (int j = 0; j < X.GetLength(1); j++)
           {
-          X[i,j]=new Random().Next(10,100);
+          X[i,j]=new Random().Next(-99,100);
           }
      }
      return X;

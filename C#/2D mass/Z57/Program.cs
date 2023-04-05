@@ -1,5 +1,5 @@
 ﻿////// Массив 2D с целыми числами
-////// Выводим местами крайние строки
+////// упорядочивания по убыванию элементы каждой строки
 
 int[,]FillMass(int[,] X)  //Метод заполнения массива
 {
@@ -7,7 +7,7 @@ int[,]FillMass(int[,] X)  //Метод заполнения массива
      {
           for (int j = 0; j < X.GetLength(1); j++)
           {
-          X[i,j]=new Random().Next(-100,100);
+          X[i,j]=new Random().Next(-99,100);
           }
      }
      return X;
@@ -25,15 +25,24 @@ void ShowMass(int[,] X)  //Метод вывода массива без коо�
      }
 }
 
-void ChangeBorderLines(int[,] X)        //Метод замены строк
+void LineMinorSort(int[,] X)        //Метод построчной сортировки по убыванию
 {     
-     int buffer=0;
-     for (int i = 0; i < X.GetLength(1); i++)
+     int buffer = X[0,0];
+     for (int i = 0; i < X.GetLength(0); i++)
      {
-          buffer = X[0,i];
-          X[0,i]=X[X.GetLength(0)-1,i];
-          X[X.GetLength(0)-1,i]=buffer;
-     }
+          for (int j = 1; j < X.GetLength(1); j++)
+          {
+               for (int k=0; k<X.GetLength(1)-1; k++)
+               {
+                    if (X[i,k]>X[i,k+1])
+                    {
+                         buffer=X[i,k];
+                         X[i,k]=X[i,k+1];
+                         X[i,k+1]=buffer;
+                    }
+               }
+          }
+     }    
 }
 
 int xSize=new Random().Next(1,10);
@@ -43,6 +52,6 @@ int [,]MyMass = new int[xSize,ySize];
 FillMass (MyMass);
 Console.WriteLine("Массив у нас такой - ");
 ShowMass (MyMass);
-ChangeBorderLines (MyMass);
+LineMinorSort (MyMass);
 Console.WriteLine("Массив обработан - ");
 ShowMass (MyMass);
