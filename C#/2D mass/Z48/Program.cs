@@ -19,7 +19,7 @@ void ShowMass(int[,] X)  //Метод вывода массива
      {
           for (int j = 0; j < X.GetLength(1); j++)
           {
-               Console.Write("("+(i+1)+","+(j+1)+")"+X[i,j]+" ");
+               Console.Write("("+(i)+","+(j)+")"+X[i,j]+" ");
           }
           Console.WriteLine();
      }
