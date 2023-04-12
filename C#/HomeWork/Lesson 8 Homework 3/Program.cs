@@ -1,5 +1,5 @@
 ﻿////// Массив 2D с целыми числами
-////// упорядочивания по убыванию элементы каждой строки
+////// Перемножение матриц
 
 int[,]FillMass(int[,] X)  //Метод заполнения массива
 {
@@ -36,33 +36,37 @@ void ShowMass(int[,] X)  //Метод вывода массива без коо�
      }
 }
 
-void LineMinorSort(int[,] X)        //Метод построчной сортировки по убыванию
-{     
-     int buffer = X[0,0];
+int[,]MatrMult(int[,]X,int[,]Y,int[,]Z)        //Метод перемножения матриц 
+{
      for (int i = 0; i < X.GetLength(0); i++)
      {
-          for (int j = 1; j < X.GetLength(1); j++)
+          for (int j = 0; j < Y.GetLength(1); j++)
           {
-               for (int k=0; k<X.GetLength(1)-1; k++)
+               for (int k = 0; k < X.GetLength(1); k++)
                {
-                    if (X[i,k]>X[i,k+1])
                     {
-                         buffer=X[i,k];
-                         X[i,k]=X[i,k+1];
-                         X[i,k+1]=buffer;
+                        Z[i,j]=Z[i,j]+X[i,k]*Y[k,j];
                     }
                }
           }
-     }    
+     }
+     return Z;
 }
 
-int xSize=new Random().Next(2,10);
-int ySize=new Random().Next(2,10);
-Console.WriteLine("Массив " + xSize + " на " + ySize);
-int [,]MyMass = new int[xSize,ySize];
-FillMass (MyMass);
-Console.WriteLine("Массив у нас такой - ");
-ShowMass (MyMass);
-LineMinorSort (MyMass);
-Console.WriteLine("Массив обработан - ");
-ShowMass (MyMass);
+int xSize=new Random().Next(2,9);
+int ySize=new Random().Next(2,9);
+int zSize=new Random().Next(2,9);
+Console.WriteLine("Умножаем матрицу " + xSize + " на " + ySize + " на матрицу " + ySize + " на " + zSize);
+Console.WriteLine("Получаем матрицу " + xSize + " на " + zSize);
+int [,]Matr1 = new int[xSize,ySize];
+int [,]Matr2 = new int[ySize,zSize];
+int [,]Matr3 = new int[xSize,zSize];
+FillMass (Matr1);
+FillMass (Matr2);
+Console.WriteLine("Матрицы у нас такие - ");
+ShowMass (Matr1);
+Console.WriteLine("Вторая - ");
+ShowMass (Matr2);
+Console.WriteLine("Результат произведения - ");
+MatrMult (Matr1,Matr2,Matr3);
+ShowMass (Matr3);

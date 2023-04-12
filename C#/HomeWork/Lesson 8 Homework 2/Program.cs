@@ -1,5 +1,5 @@
 ﻿////// Массив 2D с целыми числами
-////// упорядочивания по убыванию элементы каждой строки
+////// Поиск строки с наименьшей суммой
 
 int[,]FillMass(int[,] X)  //Метод заполнения массива
 {
@@ -36,33 +36,33 @@ void ShowMass(int[,] X)  //Метод вывода массива без коо�
      }
 }
 
-void LineMinorSort(int[,] X)        //Метод построчной сортировки по убыванию
-{     
-     int buffer = X[0,0];
+void MinSummString(int[,] X)        //Метод поиска (первой, если несколько) строки с минимальной суммой
+{
+     int summThisString = 0;
+     int minSumm = 0;
+     int minSummStringNumber=0;
      for (int i = 0; i < X.GetLength(0); i++)
-     {
-          for (int j = 1; j < X.GetLength(1); j++)
           {
-               for (int k=0; k<X.GetLength(1)-1; k++)
-               {
-                    if (X[i,k]>X[i,k+1])
+               for (int j = 0; j < X.GetLength(1); j++)
                     {
-                         buffer=X[i,k];
-                         X[i,k]=X[i,k+1];
-                         X[i,k+1]=buffer;
+                         summThisString=summThisString+X[i,j];
                     }
-               }
+               if ((i==0)|(minSumm > summThisString))
+                    {
+                    minSumm=summThisString;
+                    minSummStringNumber=i;
+                    summThisString=0;
+                    }
+               summThisString=0;
           }
-     }    
+     Console.WriteLine("Сумма минимальна в строке " + minSummStringNumber + ", она равна " + minSumm);
 }
 
-int xSize=new Random().Next(2,10);
-int ySize=new Random().Next(2,10);
+int xSize=new Random().Next(3,21);
+int ySize=new Random().Next(3,21);
 Console.WriteLine("Массив " + xSize + " на " + ySize);
 int [,]MyMass = new int[xSize,ySize];
 FillMass (MyMass);
 Console.WriteLine("Массив у нас такой - ");
 ShowMass (MyMass);
-LineMinorSort (MyMass);
-Console.WriteLine("Массив обработан - ");
-ShowMass (MyMass);
+MinSummString (MyMass);
