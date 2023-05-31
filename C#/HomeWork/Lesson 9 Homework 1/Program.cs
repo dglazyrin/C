@@ -1,4 +1,4 @@
-﻿void N_1 (int N)                     // Метод листинга кубов
+﻿void N_1 (int N)                     
 {
      if (N>1)
      {
@@ -7,6 +7,6 @@
           N_1(N);
      }
 }
-int A = new Random().Next(2,30);             // Загадаем число
+int A = new Random().Next(2,30);            
 Console.Write (A + " => ");
 N_1(A);
